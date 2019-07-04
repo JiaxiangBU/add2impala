@@ -39,3 +39,6 @@ parse_ks_sql(verbose = 1, y_hat = "pred", y = "target", table = "opd.table")
 parse_ks_sql(verbose = 2, y_hat = "pred", y = "target", table = "opd.table")
 ```
 
+The measurment explanation is 
+[here](https://jiaxiangbu.github.io/learn_roc/ks_learning_notes.html#ks)
+(Chinese).

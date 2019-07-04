@@ -55,3 +55,7 @@ parse_ks_sql(verbose = 2, y_hat = "pred", y = "target", table = "opd.table")
 #> max(tp/(tp+fn) - fp/(fp+tn)) as ks
 #> from aThe SQL text is on your clipboard.
 ```
+
+The measurment explanation is
+[here](https://jiaxiangbu.github.io/learn_roc/ks_learning_notes.html#ks)
+(Chinese).
