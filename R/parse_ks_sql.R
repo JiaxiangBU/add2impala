@@ -8,9 +8,15 @@
 parse_ks_sql <- function(verbose = 0,
                          y_hat = "pred",
                          y = "target",
-                         table = "opd.test_pred_table") {
+                         table = "opd.test_pred_table",
+                         other_variables = "") {
+  if (other_variables != "") {
+    cat("seperate the variable by comma `,`")
+  } else {
+    paste0(other_variables, ",")
+  }
   raw_text <- glue::glue(
-    "select {y_hat}, {y},
+    "select {y_hat}, {y}, {other_variables}
           sum(y=1) over (order by y_hat rows between current row and unbounded following) as tp,
           sum(y=0) over (order by y_hat rows between current row and unbounded following) as fp,
           sum(y=1) over (order by y_hat rows between unbounded preceding and 1 preceding) as fn,
@@ -26,7 +32,7 @@ parse_ks_sql <- function(verbose = 0,
       "with a as (
        {raw_text}
        )
-       select {y_hat}, {y},
+       select {y_hat}, {y}, {other_variables}
           tp/(tp+fn) as tpr,
           fp/(fp+tn) as fpr,
           tp/(tp+fn) - fp/(fp+tn) as ks
