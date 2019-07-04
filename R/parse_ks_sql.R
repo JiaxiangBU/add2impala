@@ -46,6 +46,6 @@ parse_ks_sql <- function(verbose = 0,
     }
 
     cat(sqltext)
-    clipr::write_clip(sqltext)
+    clipr::write_clip(sqltext, allow_non_interactive = TRUE)
     cat("The SQL text is on your clipboard.")
 }
