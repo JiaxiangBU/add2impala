@@ -31,7 +31,6 @@ devtools::install_github("JiaxiangBU/add2impala")
 
 ```{r include=FALSE}
 devtools::load_all(".")
-library(glue)
 ```
 
 ```{r}
