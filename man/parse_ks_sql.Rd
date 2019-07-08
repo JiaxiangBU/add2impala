@@ -5,7 +5,7 @@
 \title{Parse SQL Code for KS test}
 \usage{
 parse_ks_sql(verbose = 0, y_hat = "pred", y = "target",
-  table = "opd.test_pred_table")
+  table = "opd.test_pred_table", other_variables = "")
 }
 \description{
 Parse SQL Code for KS test
