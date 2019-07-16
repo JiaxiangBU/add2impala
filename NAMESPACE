@@ -2,3 +2,4 @@
 
 export(cat2int)
 export(parse_ks_sql)
+export(return_regex)
