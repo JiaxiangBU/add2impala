@@ -72,6 +72,7 @@ inputs %>% head
 ```
 
 ``` r
+# remotes::install_github("daranzolin/inferregex")
 return_regex(inputs, verbose = "recommend")
 #> # A tibble: 3 x 2
 #> # Groups:   regex [3]

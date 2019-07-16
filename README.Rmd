@@ -54,6 +54,7 @@ inputs %>% head
 ```
 
 ```{r}
+# remotes::install_github("daranzolin/inferregex")
 return_regex(inputs, verbose = "recommend")
 return_regex(inputs, verbose = "all")
 return_regex(inputs, verbose = "lazy")
