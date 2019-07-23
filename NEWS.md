@@ -1,3 +1,5 @@
+* Added the function `rolling_ks`
+
 # add2impala 0.1.0
 
 * Added the function `cat2int`
