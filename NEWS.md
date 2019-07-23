@@ -1,3 +1,5 @@
+# add2impala 0.1.0
+
 * Added the function `cat2int`
 * Added the function `parse_ks_sql`
 

@@ -1,6 +1,6 @@
 Package: add2impala
 Title: Parse statistical metrics and encoding in SQL using R
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Jiaxiang",
            family = "Li",
