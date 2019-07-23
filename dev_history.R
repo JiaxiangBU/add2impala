@@ -5,3 +5,5 @@ usethis::use_github_release()
 
 document()
 install()
+
+use_version()
