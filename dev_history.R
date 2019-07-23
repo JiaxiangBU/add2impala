@@ -1,5 +1,5 @@
 library(devtools)
-use_build_ignore("R/dev_history.R")
+use_build_ignore("dev_history.R")
 
 usethis::use_github_release()
 

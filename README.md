@@ -23,8 +23,11 @@ devtools::install_github("JiaxiangBU/add2impala")
 ## Example
 
 ``` r
+library(add2impala)
 library(tidyverse)
 ```
+
+### KS
 
 ``` r
 parse_ks_sql(verbose = 0, y_hat = "pred", y = "target", table = "opd.table")
@@ -65,6 +68,8 @@ The measurment explanation is
 [here](https://jiaxiangbu.github.io/learn_roc/ks_learning_notes.html#ks)
 (Chinese).
 
+### Regular expression
+
 ``` r
 inputs <- row.names(mtcars)
 inputs %>% head
@@ -80,8 +85,8 @@ return_regex(inputs, verbose = "recommend")
 #>   regex                                  n
 #>   <chr>                              <int>
 #> 1 "^[A-Z][a-z]{3}\\s\\d{3}$"             3
-#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
-#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
+#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
+#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
 return_regex(inputs, verbose = "all")
 #>                 string                                         regex
 #> 1            Mazda RX4                 ^[A-Z][a-z]{4}\\s[A-Z]{2}\\d$
@@ -151,4 +156,40 @@ return_regex(inputs, verbose = "all")
 #> 32     10      4      2       3      1
 return_regex(inputs, verbose = "lazy")
 #> [1] "^[A-Z][a-z]{4}\\s[A-Z]{2}\\d$"
+```
+
+### Rolling KS
+
+``` r
+rolling_ks(
+    y_hat = "pred",
+    y = "target",
+    table = "opd.test_pred_table",
+    time_variable = "inserttime"
+)
+#> with a as (
+#>     with a as (
+#>         with a as (
+#>             select distinct cast(strleft(cast(inserttime as string),10) as timestamp) as obs_date
+#>             from opd.test_pred_table
+#>         )
+#>         select a.obs_date, target, pred, inserttime
+#>         from a
+#>         left join opd.test_pred_table b
+#>         on datediff(a.obs_date,inserttime) <= 7
+#>     )
+#>     select
+#>         pred, target, inserttime, obs_date,
+#>         sum(target=1) over (partition by obs_date order by obs_date, pred rows between current row and unbounded following) as tp,
+#>         sum(target=0) over (partition by obs_date order by obs_date, pred rows between current row and unbounded following) as fp,
+#>         sum(target=1) over (partition by obs_date order by obs_date, pred rows between unbounded preceding and 1 preceding) as fn,
+#>         sum(target=0) over (partition by obs_date order by obs_date, pred rows between unbounded preceding and 1 preceding) as tn
+#>     from a
+#> )
+#> select
+#>     obs_date,
+#>     max(tp/(tp+fn) - fp/(fp+tn)) as ks
+#> from a
+#> group by 1
+#> order by obs_dateThe SQL text is on your clipboard.
 ```

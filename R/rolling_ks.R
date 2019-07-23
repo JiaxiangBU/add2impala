@@ -5,7 +5,7 @@ rolling_ks <- function(y_hat = "pred",
                        y = "target",
                        table = "opd.test_pred_table",
                        time_variable = "inserttime") {
-    raw_text <- glue::glue(
+    sqltext <- glue::glue(
         "with a as (
     with a as (
         with a as (
