@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # add2impala
 
 <!-- badges: start -->
+[![DOI](https://zenodo.org/badge/195213708.svg)](https://zenodo.org/badge/latestdoi/195213708)
 <!-- badges: end -->
 
 The goal of add2impala is to parse statistical metrics and encoding in SQL using R.
@@ -29,14 +30,12 @@ devtools::install_github("JiaxiangBU/add2impala")
 ```
 ## Example
 
-```{r include=FALSE}
-devtools::load_all(".")
-```
-
 ```{r message=FALSE, warning=FALSE}
+library(add2impala)
 library(tidyverse)
 ```
 
+### KS
 
 ```{r}
 parse_ks_sql(verbose = 0, y_hat = "pred", y = "target", table = "opd.table")
@@ -48,6 +47,8 @@ The measurment explanation is
 [here](https://jiaxiangbu.github.io/learn_roc/ks_learning_notes.html#ks)
 (Chinese).
 
+### Regular expression
+
 ```{r}
 inputs <- row.names(mtcars)
 inputs %>% head
@@ -58,5 +59,16 @@ inputs %>% head
 return_regex(inputs, verbose = "recommend")
 return_regex(inputs, verbose = "all")
 return_regex(inputs, verbose = "lazy")
+```
+
+### Rolling KS
+
+```{r}
+rolling_ks(
+    y_hat = "pred",
+    y = "target",
+    table = "opd.test_pred_table",
+    time_variable = "inserttime"
+)
 ```
 

@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/195213708.svg)](https://zenodo.org/badge/latestdoi/195213708)
 <!-- badges: end -->
 
 The goal of add2impala is to parse statistical metrics and encoding in
