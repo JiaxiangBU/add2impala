@@ -9,7 +9,8 @@
 <!-- badges: end -->
 
 The goal of add2impala is to parse statistical metrics and encoding in
-SQL using R.
+SQL using R. If you want to calculate KS statistic in R, free to try
+[rawKS](https://github.com/JiaxiangBU/rawKS).
 
 ## Installation
 
