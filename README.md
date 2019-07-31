@@ -200,8 +200,40 @@ rolling_ks(
 ``` r
 library(RODBC)
 impala <- odbcConnect("Impala")
-cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx") %>% cat
+```
+
+``` r
+output_cat2int <- cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx")
+```
+
+``` r
+output_cat2int %>% cat
 #> case when cyl = '4' then 4
 #>  when cyl = '6' then 6
 #>  when cyl = '8' then 8 end as cyl
 ```
+
+### paste\_sql\_result
+
+``` r
+library(RODBC)
+impala <- odbcConnect("Impala")
+```
+
+``` r
+output_paste_sql_result1 <- paste_sql_result("describe opd.sqlsave_test_ljx")
+```
+
+```` r
+output_paste_sql_result1 %>% cat
+#> ```sql describe opd.sqlsave_test_ljx ```   |name |type   |comment | |:----|:------|:-------| |mpg  |double |NA      | |cyl  |double |NA      | |disp |double |NA      | |hp   |double |NA      | |drat |double |NA      | |wt   |double |NA      | |qsec |double |NA      | |vs   |double |NA      | |am   |double |NA      | |gear |double |NA      | |carb |double |NA      |
+````
+
+``` r
+output_paste_sql_result2 <- paste_sql_result("select * from opd.sqlsave_test_ljx limit 100")
+```
+
+```` r
+output_paste_sql_result2 %>% cat
+#> ```sql select * from opd.sqlsave_test_ljx limit 100 ```   |  mpg| cyl|  disp|  hp| drat|    wt| |----:|---:|-----:|---:|----:|-----:| | 15.2|   8| 275.8| 180| 3.07| 3.780| | 18.1|   6| 225.0| 105| 2.76| 3.460| | 15.0|   8| 301.0| 335| 3.54| 3.570| | 27.3|   4|  79.0|  66| 4.08| 1.935| | 30.4|   4|  95.1| 113| 3.77| 1.513| | 21.4|   4| 121.0| 109| 4.11| 2.780|
+````

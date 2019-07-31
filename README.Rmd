@@ -80,6 +80,64 @@ rolling_ks(
 ```{r}
 library(RODBC)
 impala <- odbcConnect("Impala")
-cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx") %>% cat
+```
+
+```{r eval=FALSE, include=FALSE}
+cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx") %>%
+  write_rds("output/output_cat2int.rds")
+```
+
+```{r eval=F}
+output_cat2int <- cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx")
+```
+
+```{r include=FALSE}
+output_cat2int <- read_rds("output/output_cat2int.rds")
+```
+
+```{r}
+output_cat2int %>% cat
+```
+
+### paste_sql_result
+
+```{r}
+library(RODBC)
+impala <- odbcConnect("Impala")
+```
+
+
+```{r eval=FALSE, include=FALSE}
+paste_sql_result("describe opd.sqlsave_test_ljx") %>%
+  write_rds("output/output_paste_sql_result1.rds")
+```
+
+```{r eval=F}
+output_paste_sql_result1 <- paste_sql_result("describe opd.sqlsave_test_ljx")
+```
+
+```{r include=FALSE}
+output_paste_sql_result1 <- read_rds("output/output_paste_sql_result1.rds")
+```
+
+```{r}
+output_paste_sql_result1 %>% cat
+```
+
+```{r eval=FALSE, include=FALSE}
+paste_sql_result("select * from opd.sqlsave_test_ljx limit 100") %>%
+  write_rds("output/output_paste_sql_result2.rds")
+```
+
+```{r eval=F}
+output_paste_sql_result2 <- paste_sql_result("select * from opd.sqlsave_test_ljx limit 100")
+```
+
+```{r include=FALSE}
+output_paste_sql_result2 <- read_rds("output/output_paste_sql_result2.rds")
+```
+
+```{r}
+output_paste_sql_result2 %>% cat
 ```
 
