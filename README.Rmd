@@ -143,3 +143,6 @@ output_paste_sql_result2 <- read_rds("output/output_paste_sql_result2.rds")
 output_paste_sql_result2 %>% cat
 ```
 
+***
+
+`r add2pkg::add_disclaimer()`

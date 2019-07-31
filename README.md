@@ -239,3 +239,31 @@ output_paste_sql_result2 <- paste_sql_result("select * from opd.sqlsave_test_ljx
 output_paste_sql_result2 %>% cat
 #> ```sql select * from opd.sqlsave_test_ljx limit 100 ```   |  mpg| cyl|  disp|  hp| drat|    wt| |----:|---:|-----:|---:|----:|-----:| | 15.2|   8| 275.8| 180| 3.07| 3.780| | 18.1|   6| 225.0| 105| 2.76| 3.460| | 15.0|   8| 301.0| 335| 3.54| 3.570| | 27.3|   4|  79.0|  66| 4.08| 1.935| | 30.4|   4|  95.1| 113| 3.77| 1.513| | 21.4|   4| 121.0| 109| 4.11| 2.780|
 ````
+
+-----
+
+<h4 align="center">
+
+**Code of Conduct**
+
+</h4>
+
+<h6 align="center">
+
+Please note that the `add2impala` project is released with a
+[Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).<br>By
+contributing to this project, you agree to abide by its terms.
+
+</h6>
+
+<h4 align="center">
+
+**License**
+
+</h4>
+
+<h6 align="center">
+
+MIT © [Jiaxiang Li](LICENSE.md)
+
+</h6>
