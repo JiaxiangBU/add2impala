@@ -86,8 +86,8 @@ return_regex(inputs, verbose = "recommend")
 #>   regex                                  n
 #>   <chr>                              <int>
 #> 1 "^[A-Z][a-z]{3}\\s\\d{3}$"             3
-#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
-#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
+#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
+#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
 return_regex(inputs, verbose = "all")
 #>                 string                                         regex
 #> 1            Mazda RX4                 ^[A-Z][a-z]{4}\\s[A-Z]{2}\\d$
@@ -214,6 +214,8 @@ output_cat2int %>% cat
 ```
 
 ### paste\_sql\_result
+
+可以方便把 SQL 反馈的结果，做成 markdown 格式，方便分享到 GitHub 或者 GitLab 上。
 
 ``` r
 library(RODBC)

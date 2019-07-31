@@ -77,7 +77,7 @@ rolling_ks(
 
 ### cat2int
 
-```{r}
+```{r eval=FALSE}
 library(RODBC)
 impala <- odbcConnect("Impala")
 ```
@@ -101,7 +101,9 @@ output_cat2int %>% cat
 
 ### paste_sql_result
 
-```{r}
+可以方便把 SQL 反馈的结果，做成 markdown 格式，方便分享到 GitHub 或者 GitLab 上。
+
+```{r eval=FALSE}
 library(RODBC)
 impala <- odbcConnect("Impala")
 ```
