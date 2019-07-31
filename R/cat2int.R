@@ -6,7 +6,7 @@ cat2int <- function(feature = 'feature', table = 'table'){
     # library all required pkgs
     library(tidyverse)
 
-    sqlQuery(impala, glue("select distinct {feature} from {table}")) -> df
+    sqlQuery(impala, glue("select distinct {feature} from {table} order by {feature}")) -> df
 
     df[,'feature2'] <- df[,feature]
     df$level <- as.integer(df[,feature])
