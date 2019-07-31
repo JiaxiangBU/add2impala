@@ -86,8 +86,8 @@ return_regex(inputs, verbose = "recommend")
 #>   regex                                  n
 #>   <chr>                              <int>
 #> 1 "^[A-Z][a-z]{3}\\s\\d{3}$"             3
-#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
-#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
+#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
+#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
 return_regex(inputs, verbose = "all")
 #>                 string                                         regex
 #> 1            Mazda RX4                 ^[A-Z][a-z]{4}\\s[A-Z]{2}\\d$
@@ -193,4 +193,15 @@ rolling_ks(
 #> from a
 #> group by 1
 #> order by obs_dateThe SQL text is on your clipboard.
+```
+
+### cat2int
+
+``` r
+library(RODBC)
+impala <- odbcConnect("Impala")
+cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx") %>% cat
+#> case when cyl = '4' then 4
+#>  when cyl = '6' then 6
+#>  when cyl = '8' then 8 end as cyl
 ```

@@ -73,3 +73,13 @@ rolling_ks(
 )
 ```
 
+
+
+### cat2int
+
+```{r}
+library(RODBC)
+impala <- odbcConnect("Impala")
+cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx") %>% cat
+```
+
