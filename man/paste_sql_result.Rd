@@ -7,5 +7,5 @@
 paste_sql_result(sql_text)
 }
 \description{
-Paste Markdown result from SQL query.
+The output is formatted in markdown, os it is easy to share output at the GitHub or GitLab.
 }
