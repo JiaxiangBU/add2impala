@@ -1,3 +1,5 @@
+# add2impala 0.3.0
+
 * Added the function `paste_sql_result`
 
 # add2impala 0.2.0
