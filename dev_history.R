@@ -17,3 +17,10 @@ file.edit("README.Rmd")
 rmarkdown::render("README.Rmd")
 file.remove("README.html")
 source("../imp_rmd/R/pull_and_push.R")
+
+
+# add examlpes ------------------------------------------------------------
+
+clipr::read_clip() %>%
+    str_c("#' ", .) %>%
+    clipr::write_clip()

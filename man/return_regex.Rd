@@ -10,3 +10,11 @@ return_regex(input = row.names(mtcars), verbose = c("recommend", "all",
 \description{
 Return Seemingly Regular Expressions.
 }
+\examples{
+inputs <- row.names(mtcars)
+inputs \%>\% head
+# remotes::install_github("daranzolin/inferregex")
+return_regex(inputs, verbose = "recommend")
+return_regex(inputs, verbose = "all")
+return_regex(inputs, verbose = "lazy")
+}

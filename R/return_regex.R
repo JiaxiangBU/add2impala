@@ -1,6 +1,13 @@
 #' Return Seemingly Regular Expressions.
 #'
 #' @export
+#' @examples
+#' inputs <- row.names(mtcars)
+#' inputs %>% head
+#' # remotes::install_github("daranzolin/inferregex")
+#' return_regex(inputs, verbose = "recommend")
+#' return_regex(inputs, verbose = "all")
+#' return_regex(inputs, verbose = "lazy")
 
 return_regex <- function(input = row.names(mtcars),
                          verbose = c("recommend", "all", "lazy")) {
