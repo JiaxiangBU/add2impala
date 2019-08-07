@@ -24,3 +24,7 @@ source("../imp_rmd/R/pull_and_push.R")
 clipr::read_clip() %>%
     str_c("#' ", .) %>%
     clipr::write_clip()
+
+clipr::read_clip() %>%
+    str_c("#' \\dontrun{", ., "}") %>%
+    clipr::write_clip()

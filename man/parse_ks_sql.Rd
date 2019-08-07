@@ -11,7 +11,7 @@ parse_ks_sql(verbose = 0, y_hat = "pred", y = "target",
 Parse SQL Code for KS test
 }
 \examples{
-\dontrun(parse_ks_sql(verbose = 0))
-\dontrun(parse_ks_sql(verbose = 1))
-\dontrun(parse_ks_sql(verbose = 2))
+\dontrun{parse_ks_sql(verbose = 0, y_hat = "pred", y = "target", table = "opd.table")}
+\dontrun{parse_ks_sql(verbose = 1, y_hat = "pred", y = "target", table = "opd.table")}
+\dontrun{parse_ks_sql(verbose = 2, y_hat = "pred", y = "target", table = "opd.table")}
 }

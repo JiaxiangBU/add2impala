@@ -7,6 +7,9 @@
 #' @importFrom knitr kable
 #' @importFrom clipr write_clip
 #' @export
+#' @examples
+#' \dontrun{output_paste_sql_result1 <- paste_sql_result("describe opd.sqlsave_test_ljx")}
+#' \dontrun{output_paste_sql_result2 <- read_rds("output/output_paste_sql_result2.rds")}
 
 paste_sql_result <- function(sql_text) {
     is_describe <-

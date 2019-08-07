@@ -9,3 +9,8 @@ cat2int(feature = "feature", table = "table")
 \description{
 Parse integer encoding for category variable in SQL
 }
+\examples{
+\dontrun{library(RODBC)}
+\dontrun{impala <- odbcConnect("Impala")}
+\dontrun{output_cat2int <- cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx")}
+}

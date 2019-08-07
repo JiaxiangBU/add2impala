@@ -9,3 +9,7 @@ paste_sql_result(sql_text)
 \description{
 The output is formatted in markdown, os it is easy to share output at the GitHub or GitLab.
 }
+\examples{
+\dontrun{output_paste_sql_result1 <- paste_sql_result("describe opd.sqlsave_test_ljx")}
+\dontrun{output_paste_sql_result2 <- read_rds("output/output_paste_sql_result2.rds")}
+}

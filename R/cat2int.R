@@ -1,6 +1,11 @@
 #' Parse integer encoding for category variable in SQL
 #'
 #' @export
+#' @examples
+#' \dontrun{library(RODBC)}
+#' \dontrun{impala <- odbcConnect("Impala")}
+#' \dontrun{output_cat2int <- cat2int(feature = "cyl", table = "opd.sqlsave_test_ljx")}
+
 cat2int <- function(feature = 'feature', table = 'table'){
 
     # library all required pkgs

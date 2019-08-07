@@ -1,12 +1,13 @@
 #'Parse SQL Code for rolling KS test
 
 #' @export
-#' @examples \dontrun(rolling_ks(
-#' y_hat = "pred",
-#' y = "target",
-#' table = "opd.test_pred_table",
-#' time_variable = "inserttime"
-#' )
+#' @example
+#' \dontrun{rolling_ks(
+#'     y_hat = "pred",
+#'     y = "target",
+#'     table = "opd.test_pred_table",
+#'     time_variable = "inserttime"
+#' )}
 rolling_ks <- function(y_hat = "pred",
                        y = "target",
                        table = "opd.test_pred_table",

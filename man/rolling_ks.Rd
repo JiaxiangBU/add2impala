@@ -10,11 +10,3 @@ rolling_ks(y_hat = "pred", y = "target",
 \description{
 Parse SQL Code for rolling KS test
 }
-\examples{
-\dontrun(rolling_ks(
-y_hat = "pred",
-y = "target",
-table = "opd.test_pred_table",
-time_variable = "inserttime"
-)
-}
