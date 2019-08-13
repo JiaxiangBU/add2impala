@@ -2,7 +2,7 @@
 #'
 #' The output is formatted in markdown, os it is easy to share output at the GitHub or GitLab.
 #'
-#' @importFrom stringr str_detect
+#' @importFrom stringr str_detect fixed
 #' @importFrom RODBC sqlQuery
 #' @importFrom knitr kable
 #' @importFrom clipr write_clip
@@ -13,7 +13,7 @@
 
 paste_sql_result <- function(sql_text) {
     is_describe <-
-        sql_text %>% stringr::str_detect(fixed("describe", ignore_case = TRUE))
+        sql_text %>% stringr::str_detect(stringr::fixed("describe", ignore_case = TRUE))
     sql_result <- RODBC::sqlQuery(impala, sql_text)
     sql_result <- if (is_describe) {
         sql_result
