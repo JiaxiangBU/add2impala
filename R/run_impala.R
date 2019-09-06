@@ -21,7 +21,7 @@ log_heading <- function(file_path, progess_time) {
         lubridate::as.period() %>%
         usethis::ui_value()
 
-    usethis::ui_info("{file_name} runs at {current_time} and spends {spend_time}s")
+    usethis::ui_info("{file_name} runs at {current_time} and spends {spend_time}")
     cat("\n")
     usethis::ui_line("The sql script is located at {dir_name}")
 }
