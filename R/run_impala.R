@@ -15,7 +15,7 @@ log_heading <- function(file_path, progess_time) {
     file_name <- ui_path(basename(file_path))
     dir_name <- ui_path(dirname(file_path))
     spend_time <- ui_value(round(progess_time, 2))
-    
+
     usethis::ui_info("{file_name} runs at {current_time} and spends {spend_time}s")
     cat("\n")
     usethis::ui_line("The sql script is located at {dir_name}")
@@ -37,7 +37,7 @@ append_content <- function(results, file_path, log_path) {
 ```sql
 {results}
 ```")
-    
+
     c(append_content, readr::read_lines(log_path)) %>% readr::write_lines(log_path)
 }
 
@@ -45,23 +45,24 @@ append_content <- function(results, file_path, log_path) {
 #'
 #' @importFrom readr read_file
 #' @importFrom usethis ui_line ui_value ui_path
+#' @export
 
 run_impala <-
     function(file_path,
              log_path = here::here("output/caiweina/running-log.md")) {
         text <- readr::read_file(file_path)
-        
+
         start_time <- Sys.time()
         results <- connect_impala(text)
         end_time <- Sys.time()
         progess_time <- end_time - start_time
-        
+
         log_heading(file_path, progess_time)
-        
+
         usethis::ui_line("The output from impala: {ui_value(results$result)}")
-        
+
         results <- tidy_writable_result(results)
         append_content(results, file_path, log_path)
-        
+
         ui_line("The error log is located at: {ui_path(log_path)}")
     }
