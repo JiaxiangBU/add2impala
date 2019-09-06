@@ -86,8 +86,8 @@ return_regex(inputs, verbose = "recommend")
 #>   regex                                  n
 #>   <chr>                              <int>
 #> 1 "^[A-Z][a-z]{3}\\s\\d{3}$"             3
-#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
-#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
+#> 2 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]$"        2
+#> 3 "^[A-Z][a-z]{3}\\s\\d{3}[A-Z]{2}$"     2
 return_regex(inputs, verbose = "all")
 #>                 string                                         regex
 #> 1            Mazda RX4                 ^[A-Z][a-z]{4}\\s[A-Z]{2}\\d$
@@ -239,6 +239,10 @@ output_paste_sql_result2 <- paste_sql_result("select * from opd.sqlsave_test_ljx
 output_paste_sql_result2 %>% cat
 #> ```sql select * from opd.sqlsave_test_ljx limit 100 ```   |  mpg| cyl|  disp|  hp| drat|    wt| |----:|---:|-----:|---:|----:|-----:| | 15.2|   8| 275.8| 180| 3.07| 3.780| | 18.1|   6| 225.0| 105| 2.76| 3.460| | 15.0|   8| 301.0| 335| 3.54| 3.570| | 27.3|   4|  79.0|  66| 4.08| 1.935| | 30.4|   4|  95.1| 113| 3.77| 1.513| | 21.4|   4| 121.0| 109| 4.11| 2.780|
 ````
+
+### run\_impala
+
+![run\_impala](https://user-images.githubusercontent.com/15884785/64419208-ed9f6f00-d0ce-11e9-8032-3418e97bf76c.png)
 
 -----
 

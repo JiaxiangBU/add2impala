@@ -143,6 +143,10 @@ output_paste_sql_result2 <- read_rds("output/output_paste_sql_result2.rds")
 output_paste_sql_result2 %>% cat
 ```
 
+### run_impala
+
+![run_impala](https://user-images.githubusercontent.com/15884785/64419208-ed9f6f00-d0ce-11e9-8032-3418e97bf76c.png)
+
 ***
 
 `r add2pkg::add_disclaimer()`
