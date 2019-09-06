@@ -1,7 +1,7 @@
 #'Parse SQL Code for rolling KS test
 
 #' @export
-#' @example
+#' @examples
 #' \dontrun{rolling_ks(
 #'     y_hat = "pred",
 #'     y = "target",
