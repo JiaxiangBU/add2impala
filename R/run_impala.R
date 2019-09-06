@@ -10,11 +10,15 @@ connect_impala <- function(text) {
 }
 
 #' @importFrom usethis ui_value ui_info ui_path ui_line
+#' @importFrom lubridate as.period
 log_heading <- function(file_path, progess_time) {
     current_time <- ui_value(Sys.time())
     file_name <- ui_path(basename(file_path))
     dir_name <- ui_path(dirname(file_path))
-    spend_time <- ui_value(round(progess_time, 2))
+    spend_time <-
+        progess_time %>%
+        lubridate::as.period() %>%
+        usethis::ui_value()
 
     usethis::ui_info("{file_name} runs at {current_time} and spends {spend_time}s")
     cat("\n")
