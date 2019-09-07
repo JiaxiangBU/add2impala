@@ -1,3 +1,7 @@
+* Added the internal function `connect_impala`, `log_heading`, `tidy_writable_result`, `append_content`, and exported one `run_impala`.
+* Added coc and disclaimer.
+* Added examples for the function `return_regex`.
+
 # add2impala 0.3.0
 
 * Added the function `paste_sql_result`
