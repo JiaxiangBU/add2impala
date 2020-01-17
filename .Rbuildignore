@@ -6,3 +6,4 @@
 ^dev_history\.R$
 ^CODE_OF_CONDUCT\.md$
 ^output$
+^cran-comments\.md$

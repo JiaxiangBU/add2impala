@@ -46,31 +46,31 @@ append_content <- function(results, file_path, log_path) {
     c(append_content, readr::read_lines(log_path)) %>% readr::write_lines(log_path)
 }
 
-#' Run impala from script
+#' #' Run impala from script
+#' #'
+#' #' @param file_path the file path of SQL content.
+#' #' @param log_path  the path to save log content.
+#' #'
+#' #' @importFrom readr read_file
+#' #' @importFrom usethis ui_line ui_value ui_path
+#' #' @export
 #'
-#' @param file_path the file path of SQL content.
-#' @param log_path  the path to save log content.
+#' run_impala <-
+#'     function(file_path,
+#'              log_path = here::here("output/caiweina/running-log.md")) {
+#'         text <- readr::read_file(file_path)
 #'
-#' @importFrom readr read_file
-#' @importFrom usethis ui_line ui_value ui_path
-#' @export
-
-run_impala <-
-    function(file_path,
-             log_path = here::here("output/caiweina/running-log.md")) {
-        text <- readr::read_file(file_path)
-
-        start_time <- Sys.time()
-        results <- connect_impala(text)
-        end_time <- Sys.time()
-        progess_time <- end_time - start_time
-
-        log_heading(file_path, progess_time)
-
-        usethis::ui_line("The output from impala: {ui_value(results$result)}")
-
-        results <- tidy_writable_result(results)
-        append_content(results, file_path, log_path)
-
-        ui_line("The error log is located at: {ui_path(log_path)}")
-    }
+#'         start_time <- Sys.time()
+#'         results <- connect_impala(text)
+#'         end_time <- Sys.time()
+#'         progess_time <- end_time - start_time
+#'
+#'         log_heading(file_path, progess_time)
+#'
+#'         usethis::ui_line("The output from impala: {ui_value(results$result)}")
+#'
+#'         results <- tidy_writable_result(results)
+#'         append_content(results, file_path, log_path)
+#'
+#'         ui_line("The error log is located at: {ui_path(log_path)}")
+#'     }

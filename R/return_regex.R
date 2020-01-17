@@ -1,3 +1,4 @@
+globalVariables(c("regex"))
 #' Return Seemingly Regular Expressions.
 #' @import inferregex
 #' @import dplyr
@@ -22,7 +23,7 @@ return_regex <- function(input = row.names(datasets::mtcars),
         regex_df %>%
             dplyr::group_by(regex) %>%
             dplyr::count() %>%
-            dplyr::arrange(desc(n)) %>%
+            dplyr::arrange(dplyr::desc(n)) %>%
             head(3) %>%
             print()
 

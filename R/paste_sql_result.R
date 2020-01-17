@@ -14,6 +14,7 @@
 #' \dontrun{output_paste_sql_result2 <- read_rds("output/output_paste_sql_result2.rds")}
 
 paste_sql_result <- function(sql_text) {
+    impala <- RODBC::odbcConnect("Impala")
     is_describe <-
         sql_text %>% stringr::str_detect(stringr::fixed("describe", ignore_case = TRUE))
     sql_result <- RODBC::sqlQuery(impala, sql_text)
