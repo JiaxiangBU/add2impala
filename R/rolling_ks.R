@@ -1,5 +1,9 @@
 #'Parse SQL Code for rolling KS test
-
+#'
+#' @param y_hat the prediction column name.
+#' @param y the target column name.
+#' @param table the impala table name.
+#' @param time_variable the time variable name.
 #' @export
 #' @examples
 #' \dontrun{rolling_ks(

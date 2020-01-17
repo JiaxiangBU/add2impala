@@ -7,6 +7,17 @@
 parse_ks_sql(verbose = 0, y_hat = "pred", y = "target",
   table = "opd.test_pred_table", other_variables = "")
 }
+\arguments{
+\item{verbose}{The output style, such as 0, 1, 2}
+
+\item{y_hat}{the predictions.}
+
+\item{y}{the target column name.}
+
+\item{table}{the impala table.}
+
+\item{other_variables}{the other variable names in the impala table.}
+}
 \description{
 Parse SQL Code for KS test
 }

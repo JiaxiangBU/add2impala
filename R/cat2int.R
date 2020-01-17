@@ -1,5 +1,7 @@
 #' Parse integer encoding for category variable in SQL
 #'
+#' @param feature Feature name.
+#' @param table data.frame.
 #' @export
 #' @examples
 #' \dontrun{library(RODBC)}
@@ -9,22 +11,22 @@
 cat2int <- function(feature = 'feature', table = 'table'){
 
     # library all required pkgs
-    library(tidyverse)
-
-    sqlQuery(impala, glue::glue("select distinct {feature} from {table} order by {feature}")) -> df
+    # library(tidyverse)
+    impala <- RODBC::odbcConnect("Impala")
+    RODBC::sqlQuery(impala, glue::glue("select distinct {feature} from {table} order by {feature}")) -> df
 
     df[,'feature2'] <- df[,feature]
     df$level <- as.integer(df[,feature])
 
     df %>%
-        mutate(
+        dplyr::mutate(
             text = glue::glue("when {feature} = '{feature2}' then {level}")
         ) %>%
-        summarise(
+        dplyr::summarise(
             text = str_flatten(text, "\n\t")
         ) %>%
-        mutate(text = glue::glue("case {text} end as {feature}")) %>%
-        mutate(text = str_replace_all(text, "= 'NA' then NA", "is NULL then NULL")) %>%
-        pull -> text
+        dplyr::mutate(text = glue::glue("case {text} end as {feature}")) %>%
+        dplyr::mutate(text = stringr::str_replace_all(text, "= 'NA' then NA", "is NULL then NULL")) %>%
+        dplyr::pull -> text
     return(text)
 }

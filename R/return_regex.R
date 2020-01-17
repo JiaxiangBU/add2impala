@@ -1,5 +1,8 @@
 #' Return Seemingly Regular Expressions.
-#'
+#' @import inferregex
+#' @import dplyr
+#' @param input The text list.
+#' @param verbose the output style, by default, 'recommend', 'all' and 'lazy'.
 #' @export
 #' @examples
 #' inputs <- row.names(mtcars)
@@ -8,28 +11,27 @@
 #' return_regex(inputs, verbose = "recommend")
 #' return_regex(inputs, verbose = "all")
 #' return_regex(inputs, verbose = "lazy")
-
-return_regex <- function(input = row.names(mtcars),
+return_regex <- function(input = row.names(datasets::mtcars),
                          verbose = c("recommend", "all", "lazy")) {
-    library(inferregex)
-    library(tidyverse)
+    # library(inferregex)
+    # library(tidyverse)
 
-    regex_df <- map_dfr(input, infer_regex)
+    regex_df <- purrr::map_dfr(input, inferregex::infer_regex)
 
     if (verbose == "recommend") {
         regex_df %>%
-            group_by(regex) %>%
-            count() %>%
-            arrange(desc(n)) %>%
+            dplyr::group_by(regex) %>%
+            dplyr::count() %>%
+            dplyr::arrange(desc(n)) %>%
             head(3) %>%
-            print
+            print()
 
     }
     if (verbose == "all") {
-        regex_df %>% print
+        regex_df %>% print()
     }
     if (verbose == "lazy") {
-        regex_df %>% select(regex) %>% head(1) %>% pull %>%
-        print
+        regex_df %>% dplyr::select(regex) %>% head(1) %>% dplyr::pull() %>%
+        print()
     }
 }

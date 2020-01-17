@@ -1,13 +1,13 @@
-#' @importFrom sessioninfo os_name
-#' @importFrom stringr str_detect
-#' @importFrom purrr safely
-connect_impala <- function(text) {
-    if (!sessioninfo::os_name() %>% stringr::str_detect("Ubuntu")) {
-        purrr::safely(sqlQuery)(impala, text)
-    } else {
-        purrr::safely(dbGetQuery)(con, text)
-    }
-}
+#' #' @importFrom sessioninfo os_name
+#' #' @importFrom stringr str_detect
+#' #' @importFrom purrr safely
+#' connect_impala <- function(text) {
+#'     if (!sessioninfo::os_name() %>% stringr::str_detect("Ubuntu")) {
+#'         purrr::safely(sqlQuery)(impala, text)
+#'     } else {
+#'         purrr::safely(dbGetQuery)(con, text)
+#'     }
+#' }
 
 #' @importFrom usethis ui_value ui_info ui_path ui_line
 #' @importFrom lubridate as.period
@@ -47,6 +47,9 @@ append_content <- function(results, file_path, log_path) {
 }
 
 #' Run impala from script
+#'
+#' @param file_path the file path of SQL content.
+#' @param log_path  the path to save log content.
 #'
 #' @importFrom readr read_file
 #' @importFrom usethis ui_line ui_value ui_path

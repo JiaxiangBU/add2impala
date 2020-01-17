@@ -6,6 +6,8 @@
 #' @importFrom RODBC sqlQuery
 #' @importFrom knitr kable
 #' @importFrom clipr write_clip
+#' @importFrom utils head
+#' @param sql_text The SQL text.
 #' @export
 #' @examples
 #' \dontrun{output_paste_sql_result1 <- paste_sql_result("describe opd.sqlsave_test_ljx")}

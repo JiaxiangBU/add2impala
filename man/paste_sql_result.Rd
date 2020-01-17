@@ -6,6 +6,9 @@
 \usage{
 paste_sql_result(sql_text)
 }
+\arguments{
+\item{sql_text}{The SQL text.}
+}
 \description{
 The output is formatted in markdown, os it is easy to share output at the GitHub or GitLab.
 }

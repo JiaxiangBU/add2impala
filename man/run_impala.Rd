@@ -7,6 +7,11 @@
 run_impala(file_path,
   log_path = here::here("output/caiweina/running-log.md"))
 }
+\arguments{
+\item{file_path}{the file path of SQL content.}
+
+\item{log_path}{the path to save log content.}
+}
 \description{
 Run impala from script
 }

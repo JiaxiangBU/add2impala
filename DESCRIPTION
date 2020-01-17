@@ -13,5 +13,16 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     glue,
-    magrittr
+    magrittr,
+    RODBC,
+    clipr,
+    knitr,
+    lubridate,
+    purrr,
+    readr,
+    sessioninfo,
+    stringr,
+    usethis,
+    dplyr,
+    inferregex
 RoxygenNote: 6.1.1

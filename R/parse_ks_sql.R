@@ -1,5 +1,10 @@
 #'Parse SQL Code for KS test
-
+#'
+#' @param verbose The output style, such as 0, 1, 2
+#' @param y_hat the predictions.
+#' @param y the target column name.
+#' @param table the impala table.
+#' @param other_variables the other variable names in the impala table.
 #' @export
 #' @examples
 #' \dontrun{parse_ks_sql(verbose = 0, y_hat = "pred", y = "target", table = "opd.table")}

@@ -6,6 +6,11 @@
 \usage{
 cat2int(feature = "feature", table = "table")
 }
+\arguments{
+\item{feature}{Feature name.}
+
+\item{table}{data.frame.}
+}
 \description{
 Parse integer encoding for category variable in SQL
 }

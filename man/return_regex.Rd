@@ -4,8 +4,13 @@
 \alias{return_regex}
 \title{Return Seemingly Regular Expressions.}
 \usage{
-return_regex(input = row.names(mtcars), verbose = c("recommend", "all",
-  "lazy"))
+return_regex(input = row.names(datasets::mtcars),
+  verbose = c("recommend", "all", "lazy"))
+}
+\arguments{
+\item{input}{The text list.}
+
+\item{verbose}{the output style, by default, 'recommend', 'all' and 'lazy'.}
 }
 \description{
 Return Seemingly Regular Expressions.

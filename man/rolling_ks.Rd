@@ -7,6 +7,15 @@
 rolling_ks(y_hat = "pred", y = "target",
   table = "opd.test_pred_table", time_variable = "inserttime")
 }
+\arguments{
+\item{y_hat}{the prediction column name.}
+
+\item{y}{the target column name.}
+
+\item{table}{the impala table name.}
+
+\item{time_variable}{the time variable name.}
+}
 \description{
 Parse SQL Code for rolling KS test
 }
