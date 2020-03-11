@@ -27,6 +27,6 @@ cat2int <- function(feature = 'feature', table = 'table'){
         ) %>%
         dplyr::mutate(text = glue::glue("case {text} end as {feature}")) %>%
         dplyr::mutate(text = stringr::str_replace_all(text, "= 'NA' then NA", "is NULL then NULL")) %>%
-        dplyr::pull -> text
+        dplyr::pull() -> text
     return(text)
 }
