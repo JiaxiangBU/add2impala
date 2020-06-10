@@ -28,5 +28,7 @@ paste_sql_result <- function(sql_text) {
     sql_result <- sql_result %>% knitr::kable("markdown")
     sql_result <- c("```sql",sql_text, "```", "", "", sql_result)
     sql_result %>% clipr::write_clip(allow_non_interactive = TRUE)
-    print(sql_result)
+    # browser()
+    # nice print
+    cat(sql_result, sep = "\n")
 }
